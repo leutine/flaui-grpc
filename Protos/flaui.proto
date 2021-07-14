@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server";
+
+package flarpc;
+
+service FlaRPC {
+  rpc Launch (Application) returns (Application);
+  rpc TestTypeText (TypeTextObject) returns (TypeTextObject);
+}
+
+message Application {
+  string name = 1;
+}
+
+message Empty {
+}
+
+message TypeTextObject {
+  string element = 1;
+  string text = 2;
+}
