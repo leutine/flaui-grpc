@@ -5,10 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="..\Protos\flaui.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="..\Protos\greet.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlaUI.UIA3" Version="3.2.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
   </ItemGroup>
 

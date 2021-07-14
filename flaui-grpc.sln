@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{A9B8CBF2-3544-4481-8D6A-74976E191019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{29D8D633-A4D1-4B5A-9878-8BAB6680506B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaUITest", "FlaUITest\FlaUITest.csproj", "{29D8D633-A4D1-4B5A-9878-8BAB6680506B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
