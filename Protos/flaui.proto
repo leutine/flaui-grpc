@@ -5,18 +5,56 @@ option csharp_namespace = "Server";
 package flarpc;
 
 service FlaRPC {
-  rpc Launch (Application) returns (Application);
-  rpc TestTypeText (TypeTextObject) returns (TypeTextObject);
-}
-
-message Application {
-  string name = 1;
+  rpc Launch (App) returns (App);
+  rpc Close (App) returns (App);
+  rpc Type (TypeRequest) returns (TypeRequest);
+  rpc FindElement (By) returns (Element);
+  rpc Click (By) returns (Empty);
+  rpc ClickCoords (Coordinates) returns (Empty);
+  rpc Attach (App) returns (App);
+  rpc Screenshot (Empty) returns (File);
 }
 
 message Empty {
 }
 
-message TypeTextObject {
-  string element = 1;
+message App {
+  string name = 1;
+  string exe_path = 3;
+  int32 process_id = 2;
+}
+
+message File {
+  bytes buffer = 1;
+}
+
+message TypeRequest {
+  By by = 1;
   string text = 2;
+}
+
+message By {
+  string automation_id = 1;
+  string xpath = 2;
+  string name = 3;
+  string control_type = 4;
+  string class_name = 5;
+}
+
+message Element {
+  string automation_id = 1;
+  string class_name = 2;
+  ControlType control_type = 3;
+  int32 fill_color = 4;
+}
+
+enum ControlType {
+  BUTTON = 0;
+  CHECKBOX = 1;
+  COMBOBOX = 2;
+}
+
+message Coordinates {
+  double x = 1;
+  double y = 2;
 }

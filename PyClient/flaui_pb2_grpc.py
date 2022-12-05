@@ -16,13 +16,43 @@ class FlaRPCStub(object):
         """
         self.Launch = channel.unary_unary(
                 '/flarpc.FlaRPC/Launch',
-                request_serializer=flaui__pb2.Application.SerializeToString,
-                response_deserializer=flaui__pb2.Application.FromString,
+                request_serializer=flaui__pb2.App.SerializeToString,
+                response_deserializer=flaui__pb2.App.FromString,
                 )
-        self.TestTypeText = channel.unary_unary(
-                '/flarpc.FlaRPC/TestTypeText',
-                request_serializer=flaui__pb2.TypeTextObject.SerializeToString,
-                response_deserializer=flaui__pb2.TypeTextObject.FromString,
+        self.Close = channel.unary_unary(
+                '/flarpc.FlaRPC/Close',
+                request_serializer=flaui__pb2.App.SerializeToString,
+                response_deserializer=flaui__pb2.App.FromString,
+                )
+        self.Type = channel.unary_unary(
+                '/flarpc.FlaRPC/Type',
+                request_serializer=flaui__pb2.TypeRequest.SerializeToString,
+                response_deserializer=flaui__pb2.TypeRequest.FromString,
+                )
+        self.FindElement = channel.unary_unary(
+                '/flarpc.FlaRPC/FindElement',
+                request_serializer=flaui__pb2.By.SerializeToString,
+                response_deserializer=flaui__pb2.Element.FromString,
+                )
+        self.Click = channel.unary_unary(
+                '/flarpc.FlaRPC/Click',
+                request_serializer=flaui__pb2.By.SerializeToString,
+                response_deserializer=flaui__pb2.Empty.FromString,
+                )
+        self.ClickCoords = channel.unary_unary(
+                '/flarpc.FlaRPC/ClickCoords',
+                request_serializer=flaui__pb2.Coordinates.SerializeToString,
+                response_deserializer=flaui__pb2.Empty.FromString,
+                )
+        self.Attach = channel.unary_unary(
+                '/flarpc.FlaRPC/Attach',
+                request_serializer=flaui__pb2.App.SerializeToString,
+                response_deserializer=flaui__pb2.App.FromString,
+                )
+        self.Screenshot = channel.unary_unary(
+                '/flarpc.FlaRPC/Screenshot',
+                request_serializer=flaui__pb2.Empty.SerializeToString,
+                response_deserializer=flaui__pb2.File.FromString,
                 )
 
 
@@ -35,7 +65,43 @@ class FlaRPCServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestTypeText(self, request, context):
+    def Close(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Type(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FindElement(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Click(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ClickCoords(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Attach(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Screenshot(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -46,13 +112,43 @@ def add_FlaRPCServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Launch': grpc.unary_unary_rpc_method_handler(
                     servicer.Launch,
-                    request_deserializer=flaui__pb2.Application.FromString,
-                    response_serializer=flaui__pb2.Application.SerializeToString,
+                    request_deserializer=flaui__pb2.App.FromString,
+                    response_serializer=flaui__pb2.App.SerializeToString,
             ),
-            'TestTypeText': grpc.unary_unary_rpc_method_handler(
-                    servicer.TestTypeText,
-                    request_deserializer=flaui__pb2.TypeTextObject.FromString,
-                    response_serializer=flaui__pb2.TypeTextObject.SerializeToString,
+            'Close': grpc.unary_unary_rpc_method_handler(
+                    servicer.Close,
+                    request_deserializer=flaui__pb2.App.FromString,
+                    response_serializer=flaui__pb2.App.SerializeToString,
+            ),
+            'Type': grpc.unary_unary_rpc_method_handler(
+                    servicer.Type,
+                    request_deserializer=flaui__pb2.TypeRequest.FromString,
+                    response_serializer=flaui__pb2.TypeRequest.SerializeToString,
+            ),
+            'FindElement': grpc.unary_unary_rpc_method_handler(
+                    servicer.FindElement,
+                    request_deserializer=flaui__pb2.By.FromString,
+                    response_serializer=flaui__pb2.Element.SerializeToString,
+            ),
+            'Click': grpc.unary_unary_rpc_method_handler(
+                    servicer.Click,
+                    request_deserializer=flaui__pb2.By.FromString,
+                    response_serializer=flaui__pb2.Empty.SerializeToString,
+            ),
+            'ClickCoords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ClickCoords,
+                    request_deserializer=flaui__pb2.Coordinates.FromString,
+                    response_serializer=flaui__pb2.Empty.SerializeToString,
+            ),
+            'Attach': grpc.unary_unary_rpc_method_handler(
+                    servicer.Attach,
+                    request_deserializer=flaui__pb2.App.FromString,
+                    response_serializer=flaui__pb2.App.SerializeToString,
+            ),
+            'Screenshot': grpc.unary_unary_rpc_method_handler(
+                    servicer.Screenshot,
+                    request_deserializer=flaui__pb2.Empty.FromString,
+                    response_serializer=flaui__pb2.File.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -76,13 +172,13 @@ class FlaRPC(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/Launch',
-            flaui__pb2.Application.SerializeToString,
-            flaui__pb2.Application.FromString,
+            flaui__pb2.App.SerializeToString,
+            flaui__pb2.App.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TestTypeText(request,
+    def Close(request,
             target,
             options=(),
             channel_credentials=None,
@@ -92,8 +188,110 @@ class FlaRPC(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/TestTypeText',
-            flaui__pb2.TypeTextObject.SerializeToString,
-            flaui__pb2.TypeTextObject.FromString,
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/Close',
+            flaui__pb2.App.SerializeToString,
+            flaui__pb2.App.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Type(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/Type',
+            flaui__pb2.TypeRequest.SerializeToString,
+            flaui__pb2.TypeRequest.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def FindElement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/FindElement',
+            flaui__pb2.By.SerializeToString,
+            flaui__pb2.Element.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Click(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/Click',
+            flaui__pb2.By.SerializeToString,
+            flaui__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ClickCoords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/ClickCoords',
+            flaui__pb2.Coordinates.SerializeToString,
+            flaui__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Attach(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/Attach',
+            flaui__pb2.App.SerializeToString,
+            flaui__pb2.App.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Screenshot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/flarpc.FlaRPC/Screenshot',
+            flaui__pb2.Empty.SerializeToString,
+            flaui__pb2.File.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
